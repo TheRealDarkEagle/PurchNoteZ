@@ -42,7 +42,11 @@ class MainViewController: UIViewController,UICollectionViewDataSource, UICollect
     
     @IBAction func handleTap(_ gesture: UITapGestureRecognizer){
         print("tabbed!")
-       var cell = gesture.view as? shoppinglistItemCell
-        print(cell?.titelLabel.text)
+        if let cell = gesture.view as? shoppinglistItemCell{
+            guard let shoppinglistkey = cell.titelLabel.text else { return }
+           
+            print(shoppinglistkey)
+        }
+        
     }
 }
