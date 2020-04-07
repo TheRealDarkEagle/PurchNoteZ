@@ -23,8 +23,9 @@ class CreateViewController: UIViewController,UICollectionViewDataSource, UIColle
     private lazy var shoppinglist: ShoppingList  = {
         var sp = ShoppingList()
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd.mm.yyyy"
-        let date = formatter.string(from: Date())
+        formatter.dateFormat = "dd.MM.yyyy"
+        let currentDay = Date()
+        let date = formatter.string(from: currentDay)
         titleLabel?.text = date
         sp.title = date
         return sp
