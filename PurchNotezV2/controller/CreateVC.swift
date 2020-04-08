@@ -8,11 +8,9 @@
 import UIKit
 import Foundation
 
-class CreateViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate {
+class CreateViewController: UICollectionViewController{
     
-    @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var addButton: UIButton!
     
     @IBOutlet weak var titleLabel: UILabel! = {
         let label = UILabel()
@@ -26,21 +24,22 @@ class CreateViewController: UIViewController,UICollectionViewDataSource, UIColle
         formatter.dateFormat = "dd.MM.yyyy"
         let currentDay = Date()
         let date = formatter.string(from: currentDay)
+        
         titleLabel?.text = date
         sp.title = date
         return sp
     }()
 
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    @IBAction func addItem(_ sender: UIButton!){
-        let ac = UIAlertController(title: "Description", message: nil, preferredStyle: .alert)
+    @IBAction func addItem(_ sender: Any) {
+        let ac = UIAlertController(title: "Was benötigst du noch?", message: nil, preferredStyle: .alert)
         ac.addTextField()
         
-        let submitAction = UIAlertAction(title: "Submit", style: .default){
+        let submitAction = UIAlertAction(title: "Hinzufügen", style: .default){
             [weak self, weak ac] _ in guard let txt = ac?.textFields?[0].text else { return }
             self?.createShoppingItem(txt)
         }
@@ -61,7 +60,8 @@ class CreateViewController: UIViewController,UICollectionViewDataSource, UIColle
         collectionView.reloadData()
     }
 
-    @IBAction func save(_ sender: UIButton) {
+    @IBAction func save(_ sender: Any) {
+        
         SaveAndRead().save(shoppinglist)
         
     }
@@ -82,15 +82,15 @@ class CreateViewController: UIViewController,UICollectionViewDataSource, UIColle
                self.present(ac, animated: true)
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         shoppinglist.items.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath) as! CustomCollectionViewCell
         
-        cell.titleLabel.text = shoppinglist.items[indexPath.item].getTitle()
-        cell.descritonLabel.text = shoppinglist.items[indexPath.item].description
+        cell.setTitle(shoppinglist.items[indexPath.item].getTitle())
+        cell.setDescription(shoppinglist.items[indexPath.item].description) 
         
         return cell
     }

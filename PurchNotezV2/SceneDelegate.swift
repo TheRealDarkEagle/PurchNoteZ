@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  PurchNotezV2
+//  SSP
 //
-//  Created by Baur Versand on 27.03.20.
+//  Created by Baur Versand on 25.03.20.
 //  Copyright © 2020 Empiriecom. All rights reserved.
 //
 

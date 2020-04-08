@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Foundation
 
 class MainViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate{
     
@@ -44,6 +43,7 @@ class MainViewController: UIViewController,UICollectionViewDataSource, UICollect
         print("tabbed!")
         if let cell = gesture.view as? shoppinglistItemCell{
             guard let shoppinglistkey = cell.titelLabel.text else { return }
+            print(shoppinglistkey)
         }
         
     }
