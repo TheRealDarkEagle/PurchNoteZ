@@ -90,9 +90,7 @@ class CreateViewController: UICollectionViewController{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath) as! CustomCollectionViewCell
         
         cell.setTitle(shoppinglist.items[indexPath.item].getTitle())
-        cell.setDescription(shoppinglist.items[indexPath.item].description) 
-        print(cell.frame.height)
-        print(cell.frame.width)
+        cell.setDescription(shoppinglist.items[indexPath.item].description)
         return cell
     }
     
