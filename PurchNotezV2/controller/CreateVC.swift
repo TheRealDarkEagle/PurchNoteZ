@@ -91,7 +91,8 @@ class CreateViewController: UICollectionViewController{
         
         cell.setTitle(shoppinglist.items[indexPath.item].getTitle())
         cell.setDescription(shoppinglist.items[indexPath.item].description) 
-        
+        print(cell.frame.height)
+        print(cell.frame.width)
         return cell
     }
     
