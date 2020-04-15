@@ -11,7 +11,6 @@
         <!--Navigation Controller-->
         <scene sceneID="mXI-Go-dMW">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JH9-AF-DKg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController toolbarHidden="NO" id="p66-El-cjD" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SBr-3Q-wsa">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -25,6 +24,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="F8A-Z1-g4Z"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JH9-AF-DKg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-735" y="98"/>
         </scene>
@@ -92,7 +92,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="PurchNoteZ" id="8Jh-fd-7XU">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="jjj-5o-0Qc"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="jjj-5o-0Qc">
+                            <connections>
+                                <segue destination="aLL-GB-32s" kind="show" id="U9u-Xd-hfA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Uph-pD-WO4" id="qvb-mm-C90"/>
@@ -101,6 +105,87 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53.623188405797109" y="97.767857142857139"/>
+        </scene>
+        <!--Einkaufsliste-->
+        <scene sceneID="cdE-Ut-oo7">
+            <objects>
+                <collectionViewController id="aLL-GB-32s" customClass="CreateViewController" customModule="PurchNotezV2" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="BVg-ME-jNM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="15" minimumInteritemSpacing="15" id="4DD-Bg-gGf">
+                            <size key="itemSize" width="100" height="100"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="15" minY="15" maxX="15" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" reuseIdentifier="itemCell" translatesAutoresizingMaskIntoConstraints="NO" id="7sj-Sj-9wh" customClass="CustomCollectionViewCell" customModule="PurchNotezV2" customModuleProvider="target">
+                                <rect key="frame" x="15" y="15" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="piL-bR-pdS">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2BZ-IS-OAk">
+                                            <rect key="frame" x="0.0" y="76" width="100" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xkC-b5-eQX">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="63"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="xkC-b5-eQX" secondAttribute="trailing" constant="-8" id="Kcu-2p-Q0c"/>
+                                        <constraint firstItem="2BZ-IS-OAk" firstAttribute="leading" secondItem="piL-bR-pdS" secondAttribute="leadingMargin" constant="-8" id="Nus-ck-AxH"/>
+                                        <constraint firstItem="xkC-b5-eQX" firstAttribute="leading" secondItem="piL-bR-pdS" secondAttribute="leadingMargin" constant="-8" id="QdE-bl-Yxg"/>
+                                        <constraint firstItem="xkC-b5-eQX" firstAttribute="top" secondItem="piL-bR-pdS" secondAttribute="topMargin" constant="-8" id="RkT-VJ-M01"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="2BZ-IS-OAk" secondAttribute="trailing" constant="-8" id="Xjj-cD-x4j"/>
+                                        <constraint firstItem="2BZ-IS-OAk" firstAttribute="top" secondItem="xkC-b5-eQX" secondAttribute="bottom" constant="13" id="mbP-n1-hn0"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="2BZ-IS-OAk" secondAttribute="bottom" constant="-4.5" id="pHc-tE-22y"/>
+                                    </constraints>
+                                    <viewLayoutGuide key="safeArea" id="eCA-PZ-o3B"/>
+                                </collectionViewCellContentView>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="customSize" width="100" height="100"/>
+                                <connections>
+                                    <outlet property="descritonLabel" destination="2BZ-IS-OAk" id="6aR-nH-2Ip"/>
+                                    <outlet property="titleLabel" destination="xkC-b5-eQX" id="h21-r1-OPB"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="aLL-GB-32s" id="44Q-Rc-dbP"/>
+                            <outlet property="delegate" destination="aLL-GB-32s" id="mCc-49-J1M"/>
+                        </connections>
+                    </collectionView>
+                    <toolbarItems>
+                        <barButtonItem systemItem="save" id="dNy-1n-BZS">
+                            <connections>
+                                <action selector="save:" destination="aLL-GB-32s" id="unl-TU-sxY"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Einkaufsliste" id="Tux-rm-anM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="JpU-CV-7ch">
+                            <connections>
+                                <action selector="addItem:" destination="aLL-GB-32s" id="1tg-hk-ug9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v2S-SW-itg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="811.59420289855075" y="97.767857142857139"/>
         </scene>
     </scenes>
 </document>
