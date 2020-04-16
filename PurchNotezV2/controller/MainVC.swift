@@ -10,14 +10,14 @@ import UIKit
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var tableView: UITableView!
-    
+    private let saveAndLoad = SaveAndRead()
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        shoppinglists.count
+        saveAndLoad.loadAll().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingList", for: indexPath)
-        cell.textLabel?.text = shoppinglists[indexPath.item].title
+        cell.textLabel?.text = saveAndLoad.loadAll()[indexPath.item].title
         return cell
     }
     
@@ -26,10 +26,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             print(title)
         }
     }
-    private var shoppinglists :[ShoppingList] = {
-        let list = SaveAndRead().loadAll()
-        return list
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,17 +33,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     private func setupScreen(){
-        loadShoppingList()
         reloadData()
     }
-    private func loadShoppingList(){
-       shoppinglists = SaveAndRead().loadAll()
-    }
+
     private func reloadData(){
          self.tableView.reloadData()
     }
     @IBAction func clearList(_ sender: Any) {
-        SaveAndRead().clearList()
+        saveAndLoad.clearList()
         setupScreen()
     }
     
