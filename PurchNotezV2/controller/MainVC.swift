@@ -21,21 +21,30 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
-    
-    @IBOutlet weak var collectionView: UITableView!
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let title = tableView.cellForRow(at: indexPath)?.textLabel?.text{
+            print(title)
+        }
+    }
     private var shoppinglists = [ShoppingList]()
     
     override func viewDidLoad() {
+        print("View did load!")
         super.viewDidLoad()
         setupScreen()
     }
     
     private func setupScreen(){
         loadShoppingList()
-        collectionView.reloadData()
+        //collectionView.reloadData()
     }
     private func loadShoppingList(){
        shoppinglists = SaveAndRead().loadAll()
+        tableView.reloadData()
     }
     
+    @IBAction func clearList(_ sender: Any) {
+        SaveAndRead().clearList()
+        loadShoppingList()
+    }
 }

@@ -33,6 +33,9 @@ class SaveAndRead {
         titles.append(title)
         defaults.set(titles,forKey: titleKey)
     }
+    private func clearTitleList(){
+        defaults.set(nil, forKey: titleKey)
+    }
     
     
     func load(itemListTitle: String)->[String]?{
@@ -61,5 +64,14 @@ class SaveAndRead {
         defaults.object(forKey: titleKey) as? [String] ?? [String]()
     }
     
+    func clearList(){
+        if let titles =  load(itemListTitle: titleKey){
+            titles.map{
+                defaults.set(nil, forKey: $0)
+                print("clearing Context of \($0)")
+            }
+        }
+        clearTitleList()
+    }
     
 }

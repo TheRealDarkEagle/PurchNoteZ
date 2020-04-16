@@ -41,7 +41,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="shoppingList" textLabel="2fW-n1-G2s" rowHeight="55" style="IBUITableViewCellStyleDefault" id="TQJ-lU-J3U" customClass="shoppinglistItemCell" customModule="PurchNotezV2" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="shoppingList" textLabel="2fW-n1-G2s" rowHeight="55" style="IBUITableViewCellStyleDefault" id="TQJ-lU-J3U">
                                         <rect key="frame" x="0.0" y="28" width="414" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TQJ-lU-J3U" id="OxE-zS-EmD">
@@ -70,6 +70,13 @@
                         <accessibility key="accessibilityConfiguration" label="test"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="clearList" id="RId-4f-xNX">
+                            <connections>
+                                <action selector="clearList:" destination="BYZ-38-t0r" id="6Xr-9B-SOi"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="PurchNoteZ" id="8Jh-fd-7XU">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="jjj-5o-0Qc">
                             <connections>
@@ -77,8 +84,8 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="collectionView" destination="GLp-vw-SwY" id="oFg-GZ-Nxt"/>
                         <outlet property="tableView" destination="GLp-vw-SwY" id="LNt-ml-q9d"/>
                     </connections>
                 </viewController>

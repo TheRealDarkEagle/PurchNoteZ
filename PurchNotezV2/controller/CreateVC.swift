@@ -21,7 +21,7 @@ class CreateViewController: UICollectionViewController{
     private lazy var shoppinglist: ShoppingList  = {
         var sp = ShoppingList()
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
+        formatter.dateFormat = "mm.hh.dd.MM.yyyy"
         let currentDay = Date()
         let date = formatter.string(from: currentDay)
         
@@ -61,8 +61,7 @@ class CreateViewController: UICollectionViewController{
     }
 
     @IBAction func save(_ sender: Any) {
-        
-        //SaveAndRead().save(shoppinglist)
+        SaveAndRead().save(shoppinglist)
         print("saved")
     }
     
