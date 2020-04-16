@@ -30,6 +30,7 @@ class SaveAndRead {
     
     private func saveTitle(_ title: String){
         var titles = getTitles()
+        print("the Titles are -> \(titles)")
         titles.append(title)
         defaults.set(titles,forKey: titleKey)
     }

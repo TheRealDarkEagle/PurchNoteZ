@@ -26,25 +26,32 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             print(title)
         }
     }
-    private var shoppinglists = [ShoppingList]()
+    private var shoppinglists :[ShoppingList] = {
+        let list = SaveAndRead().loadAll()
+        return list
+    }()
     
     override func viewDidLoad() {
-        print("View did load!")
         super.viewDidLoad()
         setupScreen()
     }
     
     private func setupScreen(){
         loadShoppingList()
-        //collectionView.reloadData()
+        reloadData()
     }
     private func loadShoppingList(){
        shoppinglists = SaveAndRead().loadAll()
-        tableView.reloadData()
     }
-    
+    private func reloadData(){
+         self.tableView.reloadData()
+    }
     @IBAction func clearList(_ sender: Any) {
         SaveAndRead().clearList()
-        loadShoppingList()
+        setupScreen()
+    }
+    
+    @IBAction func unwindToStartScreenController(_ unwindSegue: UIStoryboardSegue) {
+        setupScreen()
     }
 }

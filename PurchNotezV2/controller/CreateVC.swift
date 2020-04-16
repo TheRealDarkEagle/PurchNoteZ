@@ -10,8 +10,6 @@ import Foundation
 
 class CreateViewController: UICollectionViewController{
     
-    
-    
     @IBOutlet weak var titleLabel: UILabel! = {
         let label = UILabel()
         label.isUserInteractionEnabled = true
@@ -20,11 +18,7 @@ class CreateViewController: UICollectionViewController{
     
     private lazy var shoppinglist: ShoppingList  = {
         var sp = ShoppingList()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "mm.hh.dd.MM.yyyy"
-        let currentDay = Date()
-        let date = formatter.string(from: currentDay)
-        
+        let date = Date().fullStringRepresentation
         titleLabel?.text = date
         sp.title = date
         return sp
@@ -60,12 +54,14 @@ class CreateViewController: UICollectionViewController{
         collectionView.reloadData()
     }
 
-    @IBAction func save(_ sender: Any) {
+    func save() {
         SaveAndRead().save(shoppinglist)
         print("saved")
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        save()
+    }
     
     @IBAction func changeShoppinglistTitle(_ sender: Any) {
         let ac = UIAlertController(title: "Neuer Title", message: nil, preferredStyle: .alert)
@@ -92,22 +88,12 @@ class CreateViewController: UICollectionViewController{
         cell.setDescription(shoppinglist.items[indexPath.item].description)
         return cell
     }
-    
-    //Needs more Testing if this could be useable!
-    /*
-    private func alerter(alertTitle:String,buttonTitle:String) -> String?{
-        var enteredText: String? = nil
-        let alertController = UIAlertController(title: alertTitle, message: nil, preferredStyle: .alert)
-        alertController.addTextField()
-        let submitAction = UIAlertAction(title: buttonTitle, style: .default){
-            [weak alertController] _ in
-            guard let txt = alertController?.textFields?[0]
-                .text else{ return }
-            enteredText = txt
-        }
-        alertController.addAction(submitAction)
-        self.present(alertController, animated: true)
-        return enteredText
+}
+
+extension Date {
+    var fullStringRepresentation: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "mm.hh.dd.MM.yyyy"
+        return formatter.string(from: self)
     }
- */
 }
