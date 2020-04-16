@@ -8,6 +8,11 @@
 
 import UIKit
 
-class shoppinglistItemCell: UICollectionViewCell {
-    @IBOutlet weak var titelLabel: UILabel!
+class ShoppinglistItemCell: UITableViewCell {
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    
+    
+    
+    
 }

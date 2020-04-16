@@ -8,28 +8,27 @@
 
 import UIKit
 
-class MainViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate{
+class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        shoppinglists.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingList", for: indexPath)
+        cell.textLabel?.text = shoppinglists[indexPath.item].title
+        return cell
+    }
+    
+    
+    @IBOutlet weak var collectionView: UITableView!
     private var shoppinglists = [ShoppingList]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupScreen()
     }
-
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        shoppinglists.count
-    }
-       
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "shoppinglistItemCell", for: indexPath) as! shoppinglistItemCell
-        cell.titelLabel.text = shoppinglists[indexPath.item].title
-        cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:))))
-        return cell
-    }
-
     
     private func setupScreen(){
         loadShoppingList()
@@ -39,12 +38,4 @@ class MainViewController: UIViewController,UICollectionViewDataSource, UICollect
        shoppinglists = SaveAndRead().loadAll()
     }
     
-    @IBAction func handleTap(_ gesture: UITapGestureRecognizer){
-        print("tabbed!")
-        if let cell = gesture.view as? shoppinglistItemCell{
-            guard let shoppinglistkey = cell.titelLabel.text else { return }
-            print(shoppinglistkey)
-        }
-        
-    }
 }

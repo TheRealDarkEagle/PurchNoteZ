@@ -12,7 +12,7 @@
 		F94B5668243C97450062C96F /* SelectedShoppingListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B5667243C97450062C96F /* SelectedShoppingListVC.swift */; };
 		F94B566A243C9AB80062C96F /* PNCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B5669243C9AB80062C96F /* PNCollectionViewController.swift */; };
 		F94B566E243CB3E50062C96F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B566D243CB3E50062C96F /* SceneDelegate.swift */; };
-		F975E1B4243B4A6A000D295B /* shoppinglistItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975E1B3243B4A6A000D295B /* shoppinglistItemCell.swift */; };
+		F975E1B4243B4A6A000D295B /* ShoppinglistItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975E1B3243B4A6A000D295B /* ShoppinglistItemCell.swift */; };
 		F9FD029F242DF46C0061902F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FD029E242DF46C0061902F /* AppDelegate.swift */; };
 		F9FD02A6242DF46C0061902F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9FD02A4242DF46C0061902F /* Main.storyboard */; };
 		F9FD02A8242DF46E0061902F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9FD02A7242DF46E0061902F /* Assets.xcassets */; };
@@ -49,7 +49,7 @@
 		F94B5667243C97450062C96F /* SelectedShoppingListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectedShoppingListVC.swift; path = PurchNotezV2/controller/SelectedShoppingListVC.swift; sourceTree = SOURCE_ROOT; };
 		F94B5669243C9AB80062C96F /* PNCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNCollectionViewController.swift; sourceTree = "<group>"; };
 		F94B566D243CB3E50062C96F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F975E1B3243B4A6A000D295B /* shoppinglistItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoppinglistItemCell.swift; sourceTree = "<group>"; };
+		F975E1B3243B4A6A000D295B /* ShoppinglistItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppinglistItemCell.swift; sourceTree = "<group>"; };
 		F9FD029B242DF46C0061902F /* PurchNotezV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PurchNotezV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9FD029E242DF46C0061902F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9FD02A5242DF46C0061902F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 		F942A07724348AB200CF3103 /* collectionCell */ = {
 			isa = PBXGroup;
 			children = (
-				F975E1B3243B4A6A000D295B /* shoppinglistItemCell.swift */,
+				F975E1B3243B4A6A000D295B /* ShoppinglistItemCell.swift */,
 				F942A07324348AAD00CF3103 /* CustomCollectionViewCell.swift */,
 			);
 			path = collectionCell;
@@ -337,7 +337,7 @@
 				F9FD029F242DF46C0061902F /* AppDelegate.swift in Sources */,
 				F9FD02E02431CE5A0061902F /* Item.swift in Sources */,
 				F9FD02D72431B83D0061902F /* CreateVC.swift in Sources */,
-				F975E1B4243B4A6A000D295B /* shoppinglistItemCell.swift in Sources */,
+				F975E1B4243B4A6A000D295B /* ShoppinglistItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
