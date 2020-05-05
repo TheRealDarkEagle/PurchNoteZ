@@ -87,4 +87,8 @@ class SaveAndRead {
         clearTitleList()
     }
     
+    func deleteEntry(titleOfEntry txt : String){
+        defaults.set(nil, forKey: txt)
+    }
+    
 }

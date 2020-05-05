@@ -10,16 +10,9 @@ import Foundation
 
 class CreateViewController: UICollectionViewController{
     
-    @IBOutlet weak var titleLabel: UILabel! = {
-        let label = UILabel()
-        label.isUserInteractionEnabled = true
-        return label
-    }()
-    
     private lazy var shoppinglist: ShoppingList  = {
         var sp = ShoppingList()
         let date = Date().fullStringRepresentation
-        titleLabel?.text = date
         sp.title = date
         return sp
     }()
@@ -70,7 +63,6 @@ class CreateViewController: UICollectionViewController{
                let submitAction = UIAlertAction(title: "Bestätigen", style: .default){
                 [weak self, weak ac] _ in guard let txt = ac?.textFields?[0].text else { return }
                 self?.shoppinglist.title = txt
-                self?.titleLabel.text = txt
                }
         
                ac.addAction(submitAction)

@@ -22,9 +22,23 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       // if let test = tableView.indexPathsForSelectedRows {
+       // }
         if let title = tableView.cellForRow(at: indexPath)?.textLabel?.text{
-            print(title)
+            print(title + "Tabbed!")
         }
+    }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let actionDelete = UIContextualAction(style: .normal,
+                                            title:  "Delete",handler: {_,_,_ in
+                                                self.saveAndLoad.deleteEntry(titleOfEntry: self.saveAndLoad.loadAll()[indexPath.item].title)
+                                                tableView.reloadData()
+        })
+        actionDelete.backgroundColor = .red
+        
+        
+        let configuration = UISwipeActionsConfiguration(actions: [actionDelete])
+        return configuration
     }
     
     override func viewDidLoad() {
