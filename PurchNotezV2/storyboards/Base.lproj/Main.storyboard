@@ -58,9 +58,6 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.74225168460000002" green="0.88539463279999997" blue="0.72208733920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="eik-48-L6j" kind="show" id="mgQ-VK-awH"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -91,6 +88,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="GLp-vw-SwY" id="LNt-ml-q9d"/>
+                        <segue destination="eik-48-L6j" kind="show" identifier="activateSegue" id="kfX-rT-lbI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

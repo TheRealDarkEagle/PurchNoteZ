@@ -9,6 +9,7 @@
 import UIKit
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    var selectedShoppingList :ShoppingItemList?
     @IBOutlet weak var tableView: UITableView!
     private let dataStorageHandler = DataStorageHandler()
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -25,7 +26,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
        // if let test = tableView.indexPathsForSelectedRows {
        // }
         if let title = tableView.cellForRow(at: indexPath)?.textLabel?.text{
-            print(title + "Tabbed!")
+            let selected = dataStorageHandler.loadAll()[indexPath.row]
+            self.selectedShoppingList = selected
+            performSegue(withIdentifier: "activateSegue", sender: self)
+            print("The selected list is -> \(selected)")
         }
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -62,4 +66,16 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func unwindToStartScreenController(_ unwindSegue: UIStoryboardSegue) {
         setupScreen()
     }
+}
+
+
+extension MainViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "activateSegue"){
+            let t = segue.destination as! AktivShoppingListVC
+           // let c = sender as! ShoppingItemList
+            t.shoppinglist = self.selectedShoppingList
+        }
+    }
+
 }

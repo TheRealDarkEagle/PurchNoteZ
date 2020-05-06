@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		F93669972435ADE800BDD843 /* listStorageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93669962435ADE800BDD843 /* listStorageHandler.swift */; };
 		F942A07524348AAD00CF3103 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F942A07324348AAD00CF3103 /* CustomCollectionViewCell.swift */; };
-		F94B5668243C97450062C96F /* SelectedShoppingListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B5667243C97450062C96F /* SelectedShoppingListVC.swift */; };
 		F94B566A243C9AB80062C96F /* PNCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B5669243C9AB80062C96F /* PNCollectionViewController.swift */; };
 		F94B566E243CB3E50062C96F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B566D243CB3E50062C96F /* SceneDelegate.swift */; };
 		F975E1B4243B4A6A000D295B /* ShoppinglistItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975E1B3243B4A6A000D295B /* ShoppinglistItemCell.swift */; };
@@ -49,7 +48,6 @@
 /* Begin PBXFileReference section */
 		F93669962435ADE800BDD843 /* listStorageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listStorageHandler.swift; sourceTree = "<group>"; };
 		F942A07324348AAD00CF3103 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
-		F94B5667243C97450062C96F /* SelectedShoppingListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectedShoppingListVC.swift; path = PurchNotezV2/controller/SelectedShoppingListVC.swift; sourceTree = SOURCE_ROOT; };
 		F94B5669243C9AB80062C96F /* PNCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNCollectionViewController.swift; sourceTree = "<group>"; };
 		F94B566D243CB3E50062C96F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F975E1B3243B4A6A000D295B /* ShoppinglistItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppinglistItemCell.swift; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 			children = (
 				F992212D2462CFF600ADE4B1 /* AktivShoppingListVC.swift */,
 				F9FD02DA2431BB010061902F /* MainVC.swift */,
-				F94B5667243C97450062C96F /* SelectedShoppingListVC.swift */,
 				F9FD02D62431B83D0061902F /* CreateVC.swift */,
 				F94B5669243C9AB80062C96F /* PNCollectionViewController.swift */,
 			);
@@ -346,7 +343,6 @@
 				F9FD02DB2431BB010061902F /* MainVC.swift in Sources */,
 				F9F68A3224614CAE007B7299 /* PurchNotesModel.xcdatamodeld in Sources */,
 				F94B566A243C9AB80062C96F /* PNCollectionViewController.swift in Sources */,
-				F94B5668243C97450062C96F /* SelectedShoppingListVC.swift in Sources */,
 				F93669972435ADE800BDD843 /* listStorageHandler.swift in Sources */,
 				F942A07524348AAD00CF3103 /* CustomCollectionViewCell.swift in Sources */,
 				F9FD02E22431E2F30061902F /* ShoppingList.swift in Sources */,

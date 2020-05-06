@@ -11,16 +11,17 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class AktivShoppingListVC: UICollectionViewController {
+    
+    var shoppinglist : ShoppingItemList?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        print("View did Appear! -> \(shoppinglist)")
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
+       
         // Do any additional setup after loading the view.
     }
 
@@ -37,21 +38,19 @@ class AktivShoppingListVC: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return shoppinglist?.items?.count ?? 0
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        return shoppinglist?.items?.count ?? 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     
         // Configure the cell
-    
+        print("inside the collectionviewCell -> \(self.shoppinglist)")
         return cell
     }
 
@@ -85,5 +84,10 @@ class AktivShoppingListVC: UICollectionViewController {
     
     }
     */
+
+}
+
+extension AktivShoppingListVC {
+    
 
 }
