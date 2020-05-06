@@ -10,8 +10,8 @@ import Foundation
 
 class SaveAndRead {
     
-   fileprivate let defaults = UserDefaults.standard
-   fileprivate let titleKey = "PN_tK0102110"
+    fileprivate let defaults = UserDefaults.standard
+    fileprivate let titleKey = "PN_tK0102110"
     lazy private var titleList : [String] = {
        getTitles()
     }()

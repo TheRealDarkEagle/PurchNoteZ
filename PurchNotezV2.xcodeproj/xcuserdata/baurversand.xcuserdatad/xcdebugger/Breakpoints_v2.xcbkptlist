@@ -37,7 +37,7 @@
             <Locations>
                <Location
                   uuid = "3E72C079-4367-4100-85FC-93C569B85DCA - 4b23e7965da41ac6"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "PurchNotezV2.CreateViewController.__deallocating_deinit"
@@ -52,7 +52,7 @@
                </Location>
                <Location
                   uuid = "3E72C079-4367-4100-85FC-93C569B85DCA - 176cc149a3cd171"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "PurchNotezV2.CreateViewController.__allocating_init(collectionViewLayout: __C.UICollectionViewLayout) -&gt; PurchNotezV2.CreateViewController"
@@ -67,7 +67,7 @@
                </Location>
                <Location
                   uuid = "3E72C079-4367-4100-85FC-93C569B85DCA - adedd15ce530635e"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "PurchNotezV2.CreateViewController.init(collectionViewLayout: __C.UICollectionViewLayout) -&gt; PurchNotezV2.CreateViewController"
@@ -82,7 +82,7 @@
                </Location>
                <Location
                   uuid = "3E72C079-4367-4100-85FC-93C569B85DCA - 5a8b6934b007985e"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "PurchNotezV2.CreateViewController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; PurchNotezV2.CreateViewController"
@@ -97,7 +97,7 @@
                </Location>
                <Location
                   uuid = "3E72C079-4367-4100-85FC-93C569B85DCA - 992278d460760ae7"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "PurchNotezV2.CreateViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; PurchNotezV2.CreateViewController"
@@ -112,7 +112,7 @@
                </Location>
                <Location
                   uuid = "3E72C079-4367-4100-85FC-93C569B85DCA - 7fe089578e654198"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "PurchNotezV2.CreateViewController.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;PurchNotezV2.CreateViewController&gt;"
@@ -127,7 +127,7 @@
                </Location>
                <Location
                   uuid = "3E72C079-4367-4100-85FC-93C569B85DCA - 139e863e93adca95"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "PurchNotezV2.CreateViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;PurchNotezV2.CreateViewController&gt;"
@@ -179,7 +179,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "E18A3826-5051-44ED-97B6-872618B501E4"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PurchNotezV2/listStorageHandler.swift"
