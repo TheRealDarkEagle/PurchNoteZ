@@ -169,8 +169,8 @@
             filePath = "PurchNotezV2/controller/MainVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "setupScreen()"
             landmarkType = "7">
          </BreakpointContent>

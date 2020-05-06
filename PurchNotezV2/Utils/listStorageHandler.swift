@@ -15,7 +15,6 @@ class SaveAndRead {
     
     /*
      Saves the list through UserDefaults.
-     
      */
     func save(_ list: ShoppingList){
         let itemdescriptions = list.items.map{item in item.description}
@@ -37,7 +36,9 @@ class SaveAndRead {
         datahandler.loadData()
     }
     
-    
+    func delete(entry: ShoppingItemList){
+        datahandler.delete(entry: entry)
+    }
     
     func clearList(){
         print("IMPLEMENT CLEARLIST1111!!!")

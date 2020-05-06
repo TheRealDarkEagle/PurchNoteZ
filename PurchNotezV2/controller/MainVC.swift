@@ -31,7 +31,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let actionDelete = UIContextualAction(style: .normal,
                                             title:  "Delete",handler: {_,_,_ in
-                                               print("ActionDelete need to be implemnted!")
+                                                
+                                                self.saveAndLoad.delete(entry: self.saveAndLoad.loadAll()[indexPath.row])
                                                 tableView.reloadData()
         })
         actionDelete.backgroundColor = .red

@@ -10,12 +10,13 @@ import UIKit
 import CoreData
 
 class DataHandler {
-    
     var managedObjectContext: NSManagedObjectContext! = {
         var context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
         return context
     }()
+}
 
+extension DataHandler {
     func createShoppingItem(description: String) -> ShoppingItem{
         let item = ShoppingItem(context: managedObjectContext)
         item.text = description
@@ -41,11 +42,14 @@ class DataHandler {
     
     func createNewList(listTitle title: String, items: [String]){
         let list = createShoppingList(title: title)
-        items.map { text in list.addToItems(createShoppingItem(description: text))}
+        _ = items.map { text in list.addToItems(createShoppingItem(description: text))}
         do{
             try self.managedObjectContext.save()
         }catch{
             print("Could not save to Database \(error.localizedDescription)")
         }
+    }
+    func delete(entry: ShoppingItemList){
+        managedObjectContext.delete(entry)
     }
 }
