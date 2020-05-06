@@ -21,7 +21,7 @@ class AktivShoppingListVC: UICollectionViewController {
         print("View did Appear! -> \(shoppinglist)")
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-       
+        title = shoppinglist?.title
         // Do any additional setup after loading the view.
     }
 
@@ -38,7 +38,9 @@ class AktivShoppingListVC: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return shoppinglist?.items?.count ?? 0
+       let number = shoppinglist?.items?.count ?? 0
+        print(number)
+        return number
     }
 
 
@@ -49,8 +51,7 @@ class AktivShoppingListVC: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     
-        // Configure the cell
-        print("inside the collectionviewCell -> \(self.shoppinglist)")
+        
         return cell
     }
 
