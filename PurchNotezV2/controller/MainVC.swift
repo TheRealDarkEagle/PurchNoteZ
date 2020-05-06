@@ -10,14 +10,14 @@ import UIKit
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var tableView: UITableView!
-    private let saveAndLoad = SaveAndRead()
+    private let dataStorageHandler = DataStorageHandler()
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        saveAndLoad.loadAll().count
+        dataStorageHandler.loadAll().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingList", for: indexPath)
-        cell.textLabel?.text = saveAndLoad.loadAll()[indexPath.item].title
+        cell.textLabel?.text = dataStorageHandler.loadAll()[indexPath.item].title
         return cell
     }
     
@@ -32,7 +32,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let actionDelete = UIContextualAction(style: .normal,
                                             title:  "Delete",handler: {_,_,_ in
                                                 
-                                                self.saveAndLoad.delete(entry: self.saveAndLoad.loadAll()[indexPath.row])
+                                                self.dataStorageHandler.delete(entry: self.dataStorageHandler.loadAll()[indexPath.row])
                                                 tableView.reloadData()
         })
         actionDelete.backgroundColor = .red
@@ -55,7 +55,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
          self.tableView.reloadData()
     }
     @IBAction func clearList(_ sender: Any) {
-        saveAndLoad.clearList()
+        dataStorageHandler.clearList()
         setupScreen()
     }
     

@@ -48,7 +48,7 @@ class CreateViewController: UICollectionViewController{
     }
 
     func save() {
-        SaveAndRead().save(shoppinglist)
+        DataStorageHandler().save(shoppinglist)
         print("saved")
     }
     

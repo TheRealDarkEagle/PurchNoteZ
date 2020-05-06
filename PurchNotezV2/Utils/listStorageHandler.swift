@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SaveAndRead {
+class DataStorageHandler {
     
     let datahandler = DataHandler()
     
