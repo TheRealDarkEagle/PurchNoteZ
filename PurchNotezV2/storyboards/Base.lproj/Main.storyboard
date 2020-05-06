@@ -58,6 +58,9 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.74225168460000002" green="0.88539463279999997" blue="0.72208733920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="eik-48-L6j" kind="show" id="mgQ-VK-awH"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -93,6 +96,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53.623188405797109" y="97.767857142857139"/>
+        </scene>
+        <!--AktiveShoppingList-->
+        <scene sceneID="qp6-O1-nab">
+            <objects>
+                <collectionViewController id="eik-48-L6j" userLabel="AktiveShoppingList" customClass="AktivShoppingListVC" customModule="PurchNotezV2" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Thc-l6-4A6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pSC-Vx-PmL">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="3d5-sX-Qbv">
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="g7f-A3-YEk">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionViewCellContentView>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="eik-48-L6j" id="g43-JA-dGR"/>
+                            <outlet property="delegate" destination="eik-48-L6j" id="BSQ-JS-ye7"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="FzQ-Cf-HaI"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nxh-VR-tw7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="822" y="475"/>
         </scene>
         <!--Einkaufsliste-->
         <scene sceneID="cdE-Ut-oo7">
@@ -183,7 +221,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v2S-SW-itg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="9ZV-6K-XcY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="842.02898550724649" y="97.767857142857139"/>
+            <point key="canvasLocation" x="823" y="-222"/>
         </scene>
     </scenes>
 </document>
