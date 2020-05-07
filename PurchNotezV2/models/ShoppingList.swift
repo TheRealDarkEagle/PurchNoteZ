@@ -14,6 +14,6 @@ class ShoppingList{
     var items = [Item]() 
     
     func add(_ string: String){
-        items.append(Item(description: string))
+        items.append(Item(description: string, checked: false))
     }
 }

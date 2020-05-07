@@ -254,15 +254,7 @@
                             <outlet property="delegate" destination="Qco-22-ZTg" id="R4l-2y-RaV"/>
                         </connections>
                     </collectionView>
-                    <toolbarItems>
-                        <barButtonItem systemItem="save" id="0I1-wo-tHG">
-                            <inset key="largeContentSizeImageInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
-                            <connections>
-                                <action selector="saveList:" destination="Qco-22-ZTg" id="dqj-lN-4n4"/>
-                                <segue destination="Pmq-MY-Ter" kind="unwind" unwindAction="unwindToStartScreenController:" id="jkW-n2-VjP"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Einkaufsliste" id="cOQ-iS-9sI">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="mSP-eb-VS1">
                             <connections>
@@ -271,9 +263,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="0dQ-SI-qJK" id="EUS-Ob-x0y"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lif-aB-IXk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="Pmq-MY-Ter" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="822" y="485"/>
         </scene>

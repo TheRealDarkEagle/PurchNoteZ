@@ -13,4 +13,5 @@ struct Item {
     func getTitle()->String{
         String(description.prefix(1)).uppercased()
     }
+    var checked: Bool
 }

@@ -54,7 +54,7 @@ class CreateViewController: UICollectionViewController{
         if txt.isEmpty{
             return
         }
-        let item = Item(description: txt)
+        let item = Item(description: txt, checked: false)
         shoppinglist.items.append(item)
         reloadCollection()
     }
