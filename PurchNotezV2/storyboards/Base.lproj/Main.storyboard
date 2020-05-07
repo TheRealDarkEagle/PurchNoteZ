@@ -189,7 +189,7 @@
         <!--AktiveShoppingList-->
         <scene sceneID="xie-kP-oFy">
             <objects>
-                <collectionViewController id="Qco-22-ZTg" userLabel="AktiveShoppingList" customClass="CreateViewController" customModule="PurchNotezV2" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="Qco-22-ZTg" userLabel="AktiveShoppingList" customClass="AktivShoppingListVC" customModule="PurchNotezV2" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="0dQ-SI-qJK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
