@@ -12,13 +12,12 @@ private let reuseIdentifier = "Cell"
 
 class AktivShoppingListVC: UICollectionViewController {
     
-    var shoppinglist : ShoppingItemList?
+    var shoppinglist : ShoppingList?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-        print("View did Appear! -> \(shoppinglist)")
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         title = shoppinglist?.title
@@ -37,20 +36,15 @@ class AktivShoppingListVC: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-       let number = shoppinglist?.items?.count ?? 0
-        print(number)
-        return number
-    }
-
-
+  
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return shoppinglist?.items?.count ?? 0
+        return shoppinglist?.items.count ?? 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath) as! CustomCollectionViewCell
+        cell.titleLabel.text = shoppinglist?.items[indexPath.row].getTitle()
+        cell.descritonLabel.text = shoppinglist?.items[indexPath.row].description
         
         return cell
     }

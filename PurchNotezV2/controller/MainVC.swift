@@ -74,8 +74,23 @@ extension MainViewController {
         if(segue.identifier == "activateSegue"){
             let t = segue.destination as! AktivShoppingListVC
            // let c = sender as! ShoppingItemList
-            t.shoppinglist = self.selectedShoppingList
+            t.shoppinglist = self.selectedShoppingList?.convertToShoppingList()
         }
     }
 
+}
+
+extension ShoppingItemList {
+    func convertToShoppingList() -> ShoppingList{
+        let shoppinglist = ShoppingList()
+        shoppinglist.title = self.title!
+        if let items = self.items {
+            items.array.map{
+                item in
+                let shoppingItem = item as! ShoppingItem
+                shoppinglist.add(shoppingItem.text!)
+            }
+        }
+        return shoppinglist
+    }
 }
