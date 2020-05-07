@@ -12,10 +12,6 @@ class DataStorageHandler {
     
     let datahandler = DataHandler()
     
-    
-    /*
-     Saves the list through UserDefaults.
-     */
     func save(_ list: ShoppingList){
         let itemdescriptions = list.items.map{item in item.description}
         datahandler.createNewList(listTitle: list.title, items: itemdescriptions)
@@ -41,8 +37,6 @@ class DataStorageHandler {
     }
     
     func clearList(){
-        print("IMPLEMENT CLEARLIST1111!!!")
+        datahandler.deleteAll()
     }
-    
-    
 }

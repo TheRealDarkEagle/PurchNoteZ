@@ -17,74 +17,10 @@ class CreateViewController: UICollectionViewController{
         return sp
     }()
 
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         requestTitle()
     }
-    private func requestTitle(){
-        let ac = UIAlertController(title: "Titel eingeben", message: "Bitte bennene deinen Einkaufszettel", preferredStyle: .alert)
-        ac.addTextField()
-        let sc = UIAlertAction(title: "OK", style: .default){
-            [weak self, weak ac] _ in
-            guard let txt = ac?.textFields?[0].text else { return }
-            if(txt.isEmpty){
-                return
-            }
-            self?.shoppinglist.title = txt
-            self?.title = self?.shoppinglist.title
-            
-        }
-        ac.addAction(sc)
-        self.present(ac, animated: true)
-    }
-    @IBAction func addItem(_ sender: Any) {
-        let ac = UIAlertController(title: "Was benötigst du noch?", message: nil, preferredStyle: .alert)
-        ac.addTextField()
-        
-        let submitAction = UIAlertAction(title: "Hinzufügen", style: .default){
-            [weak self, weak ac] _ in guard let txt = ac?.textFields?[0].text else { return }
-            self?.createShoppingItem(txt)
-        }
-        ac.addAction(submitAction)
-        self.present(ac, animated: true)
-    }
-    
-    func createShoppingItem(_ txt: String){
-        if txt.isEmpty{
-            return
-        }
-        let item = Item(description: txt, checked: false)
-        shoppinglist.items.append(item)
-        reloadCollection()
-    }
-    
-    func reloadCollection(){
-        collectionView.reloadData()
-    }
-
-    func save() {
-        DataStorageHandler().save(shoppinglist)
-        print("saved")
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        save()
-    }
-    
-    @IBAction func changeShoppinglistTitle(_ sender: Any) {
-        let ac = UIAlertController(title: "Neuer Title", message: nil, preferredStyle: .alert)
-               ac.addTextField()
-               
-               let submitAction = UIAlertAction(title: "Bestätigen", style: .default){
-                [weak self, weak ac] _ in guard let txt = ac?.textFields?[0].text else { return }
-                self?.shoppinglist.title = txt
-               }
-        
-               ac.addAction(submitAction)
-               self.present(ac, animated: true)
-    }
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         shoppinglist.items.count
     }
@@ -96,6 +32,7 @@ class CreateViewController: UICollectionViewController{
         cell.setDescription(shoppinglist.items[indexPath.item].description)
         return cell
     }
+   
 }
 
 extension Date {
@@ -104,4 +41,66 @@ extension Date {
         formatter.dateFormat = "hh.dd.MM.yyyy"
         return formatter.string(from: self)
     }
+}
+extension CreateViewController {
+    private func requestTitle(){
+           let ac = UIAlertController(title: "Titel eingeben", message: "Bitte bennene deinen Einkaufszettel", preferredStyle: .alert)
+           ac.addTextField()
+           let sc = UIAlertAction(title: "OK", style: .default){
+               [weak self, weak ac] _ in
+               guard let txt = ac?.textFields?[0].text else { return }
+               if(txt.isEmpty){
+                   return
+               }
+               self?.shoppinglist.title = txt
+               self?.title = self?.shoppinglist.title
+               
+           }
+           ac.addAction(sc)
+           self.present(ac, animated: true)
+       }
+       @IBAction func addItem(_ sender: Any) {
+           let ac = UIAlertController(title: "Was benötigst du noch?", message: nil, preferredStyle: .alert)
+           ac.addTextField()
+           
+           let submitAction = UIAlertAction(title: "Hinzufügen", style: .default){
+               [weak self, weak ac] _ in guard let txt = ac?.textFields?[0].text else { return }
+               self?.createShoppingItem(txt)
+           }
+           ac.addAction(submitAction)
+           self.present(ac, animated: true)
+       }
+       
+       func createShoppingItem(_ txt: String){
+           if txt.isEmpty{
+               return
+           }
+           let item = Item(description: txt, checked: false)
+           shoppinglist.items.append(item)
+           reloadCollection()
+       }
+       
+       func reloadCollection(){
+           collectionView.reloadData()
+       }
+
+       func save() {
+           DataStorageHandler().save(shoppinglist)
+       }
+       
+       override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           save()
+       }
+       
+       @IBAction func changeShoppinglistTitle(_ sender: Any) {
+           let ac = UIAlertController(title: "Neuer Title", message: nil, preferredStyle: .alert)
+                  ac.addTextField()
+                  
+                  let submitAction = UIAlertAction(title: "Bestätigen", style: .default){
+                   [weak self, weak ac] _ in guard let txt = ac?.textFields?[0].text else { return }
+                   self?.shoppinglist.title = txt
+                  }
+                  ac.addAction(submitAction)
+                  self.present(ac, animated: true)
+       }
 }

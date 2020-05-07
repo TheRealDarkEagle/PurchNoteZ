@@ -27,8 +27,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             let selected = dataStorageHandler.loadAll()[indexPath.row]
             self.selectedShoppingList = selected
             performSegue(withIdentifier: "activateSegue", sender: self)
-            print("The selected list is -> \(selected)")
-        }
+           }
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let actionDelete = UIContextualAction(style: .normal,

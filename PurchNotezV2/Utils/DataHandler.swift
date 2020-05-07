@@ -56,4 +56,11 @@ extension DataHandler {
             print("Could not save Data to Database -> \(error.localizedDescription)")
         }
     }
+    func deleteAll(){
+        let list = loadData()
+        let _ = list.map { item in
+            managedObjectContext.delete(item)
+        }
+        save()
+    }
 }
