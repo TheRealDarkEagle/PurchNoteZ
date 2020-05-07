@@ -81,7 +81,7 @@
                     <navigationItem key="navigationItem" title="PurchNoteZ" id="8Jh-fd-7XU">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="jjj-5o-0Qc">
                             <connections>
-                                <segue destination="aLL-GB-32s" kind="show" id="zdQ-vj-V8D"/>
+                                <segue destination="aLL-GB-32s" kind="show" identifier="createScreenSegue" id="zdQ-vj-V8D"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

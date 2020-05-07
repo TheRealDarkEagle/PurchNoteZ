@@ -20,8 +20,24 @@ class CreateViewController: UICollectionViewController{
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        requestTitle()
     }
-    
+    private func requestTitle(){
+        let ac = UIAlertController(title: "Titel eingeben", message: "Bitte bennene deinen Einkaufszettel", preferredStyle: .alert)
+        ac.addTextField()
+        let sc = UIAlertAction(title: "OK", style: .default){
+            [weak self, weak ac] _ in
+            guard let txt = ac?.textFields?[0].text else { return }
+            if(txt.isEmpty){
+                return
+            }
+            self?.shoppinglist.title = txt
+            self?.title = self?.shoppinglist.title
+            
+        }
+        ac.addAction(sc)
+        self.present(ac, animated: true)
+    }
     @IBAction func addItem(_ sender: Any) {
         let ac = UIAlertController(title: "Was benötigst du noch?", message: nil, preferredStyle: .alert)
         ac.addTextField()
@@ -85,7 +101,7 @@ class CreateViewController: UICollectionViewController{
 extension Date {
     var fullStringRepresentation: String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "mm.hh.dd.MM.yyyy"
+        formatter.dateFormat = "hh.dd.MM.yyyy"
         return formatter.string(from: self)
     }
 }
