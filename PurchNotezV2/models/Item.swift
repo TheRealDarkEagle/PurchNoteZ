@@ -10,7 +10,6 @@ import Foundation
 
 struct Item {
     var description : String
-    //var titel : Substring
     func getTitle()->String{
         String(description.prefix(1)).uppercased()
     }
