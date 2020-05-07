@@ -43,13 +43,17 @@ extension DataHandler {
     func createNewList(listTitle title: String, items: [String]){
         let list = createShoppingList(title: title)
         _ = items.map { text in list.addToItems(createShoppingItem(description: text))}
-        do{
-            try self.managedObjectContext.save()
-        }catch{
-            print("Could not save to Database \(error.localizedDescription)")
-        }
+        save()
     }
     func delete(entry: ShoppingItemList){
         managedObjectContext.delete(entry)
+        save()
+    }
+    private func save(){
+        do{
+            try managedObjectContext.save()
+        }catch {
+            print("Could not save Data to Database -> \(error.localizedDescription)")
+        }
     }
 }
