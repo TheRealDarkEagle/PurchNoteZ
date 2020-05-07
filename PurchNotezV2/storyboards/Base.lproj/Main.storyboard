@@ -95,10 +95,10 @@
             </objects>
             <point key="canvasLocation" x="53.623188405797109" y="97.767857142857139"/>
         </scene>
-        <!--Einkaufsliste-->
+        <!--EditScreen-->
         <scene sceneID="cdE-Ut-oo7">
             <objects>
-                <collectionViewController id="aLL-GB-32s" customClass="CreateViewController" customModule="PurchNotezV2" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="aLL-GB-32s" userLabel="EditScreen" customClass="CreateViewController" customModule="PurchNotezV2" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="BVg-ME-jNM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

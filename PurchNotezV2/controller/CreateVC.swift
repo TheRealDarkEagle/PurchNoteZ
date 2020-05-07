@@ -21,6 +21,7 @@ class CreateViewController: UICollectionViewController{
         super.viewDidLoad()
         requestTitle()
     }
+
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         shoppinglist.items.count
     }
@@ -92,15 +93,20 @@ extension CreateViewController {
            save()
        }
        
-       @IBAction func changeShoppinglistTitle(_ sender: Any) {
-           let ac = UIAlertController(title: "Neuer Title", message: nil, preferredStyle: .alert)
-                  ac.addTextField()
+    @IBAction func changeShoppinglistTitle(_ sender: Any) {
+        let ac = UIAlertController(title: "Neuer Title", message: nil, preferredStyle: .alert)
+        ac.addTextField()
                   
-                  let submitAction = UIAlertAction(title: "Bestätigen", style: .default){
-                   [weak self, weak ac] _ in guard let txt = ac?.textFields?[0].text else { return }
-                   self?.shoppinglist.title = txt
-                  }
-                  ac.addAction(submitAction)
-                  self.present(ac, animated: true)
-       }
+        let submitAction = UIAlertAction(title: "Bestätigen", style: .default){
+       [weak self, weak ac] _ in
+            guard let txt = ac?.textFields?[0].text
+                else {
+                    return
+                }
+           self?.shoppinglist.title = txt
+        }
+
+        ac.addAction(submitAction)
+        self.present(ac, animated: true)
+   }
 }
