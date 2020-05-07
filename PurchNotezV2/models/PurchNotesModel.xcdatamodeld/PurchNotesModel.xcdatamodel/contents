@@ -3,14 +3,15 @@
     <entity name="ShoppingItem" representedClassName="ShoppingItem" syncable="YES" codeGenerationType="class">
         <attribute name="checked" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="text" attributeType="String"/>
+        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShoppingItemList" inverseName="items" inverseEntity="ShoppingItemList"/>
     </entity>
     <entity name="ShoppingItemList" representedClassName="ShoppingItemList" syncable="YES" codeGenerationType="class">
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="title" attributeType="String"/>
-        <relationship name="items" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="ShoppingItem"/>
+        <relationship name="items" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="ShoppingItem" inverseName="list" inverseEntity="ShoppingItem"/>
     </entity>
     <elements>
-        <element name="ShoppingItem" positionX="-36" positionY="9" width="128" height="73"/>
+        <element name="ShoppingItem" positionX="-36" positionY="9" width="128" height="88"/>
         <element name="ShoppingItemList" positionX="140.7890625" positionY="-84.23828125" width="128" height="88"/>
     </elements>
 </model>

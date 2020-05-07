@@ -42,8 +42,9 @@ class AktivShoppingListVC: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var itemStatus = shoppinglist?.items[indexPath.row].checked
-        shoppinglist?.items[indexPath.row].checked = !itemStatus!
+        guard let sh = shoppinglist  else { return }
+        let itemStatus = sh.items[indexPath.row].checked
+        sh.items[indexPath.row].checked = !itemStatus
         self.collectionView.reloadData()
     }
 }
