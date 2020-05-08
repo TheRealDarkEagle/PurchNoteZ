@@ -66,7 +66,7 @@
 		F9FD02BC242DF46E0061902F /* PurchNotezV2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PurchNotezV2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9FD02C0242DF46E0061902F /* PurchNotezV2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchNotezV2UITests.swift; sourceTree = "<group>"; };
 		F9FD02C2242DF46E0061902F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F9FD02D62431B83D0061902F /* CreateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateVC.swift; path = /Users/baurversand/Desktop/Projects/PurchNotezV2/PurchNotezV2/controller/CreateVC.swift; sourceTree = "<absolute>"; };
+		F9FD02D62431B83D0061902F /* CreateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateVC.swift; path = ../../../Projects/PurchNotezV2/PurchNotezV2/controller/CreateVC.swift; sourceTree = "<group>"; };
 		F9FD02DA2431BB010061902F /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		F9FD02DF2431CE5A0061902F /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F9FD02E12431E2F30061902F /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
@@ -125,6 +125,7 @@
 				F9FD029C242DF46C0061902F /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		F9FD029C242DF46C0061902F /* Products */ = {
 			isa = PBXGroup;
@@ -411,7 +412,7 @@
 		F9FD02C3242DF46E0061902F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -471,7 +472,7 @@
 		F9FD02C4242DF46E0061902F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
