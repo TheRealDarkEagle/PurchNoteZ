@@ -38,6 +38,7 @@ extension Date {
         return formatter.string(from: self)
     }
 }
+
 extension CreateViewController {
     private func requestTitle() {
            let alertController = UIAlertController(title: "Titel eingeben", message: "Bitte bennene deinen Einkaufszettel", preferredStyle: .alert)
