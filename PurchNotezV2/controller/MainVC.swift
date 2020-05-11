@@ -8,8 +8,8 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
-    var selectedShoppingList :ShoppingItemList?
+class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    var selectedShoppingList: ShoppingItemList?
     @IBOutlet weak var tableView: UITableView!
     private let dataStorageHandler = DataStorageHandler()
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -23,7 +23,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let _ = tableView.cellForRow(at: indexPath)?.textLabel?.text{
+        if tableView.cellForRow(at: indexPath)?.textLabel?.text != nil {
             let selected = dataStorageHandler.loadAll()[indexPath.row]
             self.selectedShoppingList = selected
             performSegue(withIdentifier: "activateSegue", sender: self)
@@ -31,13 +31,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let actionDelete = UIContextualAction(style: .normal,
-                                            title:  "Delete",handler: {_,_,_ in
+                                            title: "Delete", handler: {_, _, _ in
                                                 
                                                 self.dataStorageHandler.delete(entry: self.dataStorageHandler.loadAll()[indexPath.row])
                                                 tableView.reloadData()
         })
         actionDelete.backgroundColor = .red
-        
         
         let configuration = UISwipeActionsConfiguration(actions: [actionDelete])
         return configuration
@@ -48,11 +47,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         setupScreen()
     }
     
-    private func setupScreen(){
+    private func setupScreen() {
         reloadData()
     }
 
-    private func reloadData(){
+    private func reloadData() {
          self.tableView.reloadData()
     }
     @IBAction func clearList(_ sender: Any) {
@@ -65,25 +64,25 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 }
 
-
 extension MainViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "activateSegue"){
-            let t = segue.destination as! AktivShoppingListVC
-            t.shoppinglist = self.selectedShoppingList?.convertToShoppingList()
+        if segue.identifier == "activateSegue" {
+			guard let activeShoppingListVC = segue.destination as? AktivShoppingListVC else { return }
+            activeShoppingListVC.shoppinglist = self.selectedShoppingList?.convertToShoppingList()
         }
     }
 
 }
 
 extension ShoppingItemList {
-    func convertToShoppingList() -> ShoppingList{
+    func convertToShoppingList() -> ShoppingList {
         let shoppinglist = ShoppingList()
         shoppinglist.title = self.title!
         if let items = self.items {
-         let _ = items.array.map{
-                item in
-                shoppinglist.add((item as! ShoppingItem).text!)
+          _ = items.array.map { item in
+			guard let shoppingItem = item as? ShoppingItem else { return }
+			guard let itemText = shoppingItem.text else { return }
+			shoppinglist.add(itemText)
             }
         }
         return shoppinglist

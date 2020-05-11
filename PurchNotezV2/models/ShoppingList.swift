@@ -8,12 +8,12 @@
 
 import Foundation
 
-class ShoppingList{
+class ShoppingList {
     
-    var title:String = "";
+    var title: String = ""
     var items = [Item]() 
     
-    func add(_ string: String){
+    func add(_ string: String) {
         items.append(Item(description: string, checked: false))
     }
 }

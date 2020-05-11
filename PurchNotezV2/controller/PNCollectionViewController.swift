@@ -10,9 +10,9 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class PNCollectionViewController: NSObject, UICollectionViewDataSource, UICollectionViewDelegate{
+class PNCollectionViewController: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
 
-    var shoppinglist : ShoppingList? = nil
+    var shoppinglist: ShoppingList?
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
           
@@ -21,8 +21,8 @@ class PNCollectionViewController: NSObject, UICollectionViewDataSource, UICollec
       }
       
       func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if shoppinglist != nil{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath) as! CustomCollectionViewCell
+        if shoppinglist != nil {
+			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath) as? CustomCollectionViewCell else { return UICollectionViewCell() }
             
             cell.titleLabel.text = shoppinglist!.items[indexPath.item].getTitle()
             cell.descritonLabel.text = shoppinglist!.items[indexPath.item].description

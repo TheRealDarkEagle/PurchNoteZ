@@ -9,8 +9,8 @@
 import Foundation
 
 struct Item {
-    var description : String
-    func getTitle()->String{
+    var description: String
+    func getTitle() -> String {
         String(description.prefix(1)).uppercased()
     }
     var checked: Bool

@@ -12,8 +12,8 @@ class ShoppingItemView: UIViewController {
     //Breite des Devices - 60 (abstände zwischen den drei items pro linie)
     //rest durch 3 = größe der items
     
-    internal var titel : String = ""
-    internal var dscrpt : String = ""
+    internal var titel: String = ""
+    internal var dscrpt: String = ""
     @IBOutlet weak var titelLabel: UILabel!
     @IBOutlet weak var describtionLabel: UILabel!
     
@@ -25,12 +25,10 @@ class ShoppingItemView: UIViewController {
 //        self.view.layer.backgroundColor = UIColor.white.cgColor
     }
     
-    
-
-    func setTitle(_ txt: String){
+    func setTitle(_ txt: String) {
         titel = txt
     }
-    func setDescription(_ txt: String){
+    func setDescription(_ txt: String) {
         dscrpt = txt
     }
 

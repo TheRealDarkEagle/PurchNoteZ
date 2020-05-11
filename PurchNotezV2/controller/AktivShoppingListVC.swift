@@ -12,7 +12,7 @@ private let reuseIdentifier = "Cell"
 
 class AktivShoppingListVC: UICollectionViewController {
     
-    var shoppinglist : ShoppingList?
+    var shoppinglist: ShoppingList?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,17 +24,16 @@ class AktivShoppingListVC: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath) as! CustomCollectionViewCell
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath) as? CustomCollectionViewCell else { return UICollectionViewCell() }
+		
+		guard let item = shoppinglist?.items[indexPath.row] else { return cell }
 
-        guard let item = shoppinglist?.items[indexPath.row] else { return cell }
-
-        
         cell.titleLabel.text = item.getTitle()
         cell.descritonLabel.text = item.description
         
-        if(item.checked){
+        if item.checked {
             cell.backgroundColor = .green
-        }else{
+        } else {
             cell.backgroundColor = .systemGray6
         }
         
@@ -42,9 +41,9 @@ class AktivShoppingListVC: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let sh = shoppinglist  else { return }
-        let itemStatus = sh.items[indexPath.row].checked
-        sh.items[indexPath.row].checked = !itemStatus
+        guard let shoppinglist = shoppinglist  else { return }
+        let itemStatus = shoppinglist.items[indexPath.row].checked
+        shoppinglist.items[indexPath.row].checked = !itemStatus
         self.collectionView.reloadData()
     }
 }

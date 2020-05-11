@@ -12,31 +12,29 @@ class DataStorageHandler {
     
     let datahandler = DataHandler()
     
-    func save(_ list: ShoppingList){
-        let itemdescriptions = list.items.map{item in item.description}
+    func save(_ list: ShoppingList) {
+        let itemdescriptions = list.items.map {item in item.description}
         datahandler.createNewList(listTitle: list.title, items: itemdescriptions)
     }
    
-    
-    fileprivate func createShoppingListOf(_ key: String, _ itemdescription: [String])-> ShoppingList {
+    fileprivate func createShoppingListOf(_ key: String, _ itemdescription: [String]) -> ShoppingList {
         let shoppinglist = ShoppingList()
         shoppinglist.title = key
-        for i in 0..<itemdescription.count{
-            shoppinglist.add(itemdescription[i])
+        for counter in 0..<itemdescription.count {
+            shoppinglist.add(itemdescription[counter])
         }
        return shoppinglist
     }
     
-    
-    func loadAll()->[ShoppingItemList]{
+    func loadAll() -> [ShoppingItemList] {
         datahandler.loadData()
     }
     
-    func delete(entry: ShoppingItemList){
+    func delete(entry: ShoppingItemList) {
         datahandler.delete(entry: entry)
     }
     
-    func clearList(){
+    func clearList() {
         datahandler.deleteAll()
     }
 }

@@ -18,8 +18,6 @@ class AddItemViewController: UIViewController {
     @IBOutlet weak var titelLabel: UITextField!
     @IBOutlet weak var itemLabel: UITextField!
     
-    
-    
     @IBAction func add(_ sender: Any) {
         guard let itemTxt = itemLabel.text else {
             return
@@ -29,6 +27,4 @@ class AddItemViewController: UIViewController {
         }
 //        CreateViewController.addItem(Item(description: itemTxt, titel: itemTxt))
     }
-    
-
 }
