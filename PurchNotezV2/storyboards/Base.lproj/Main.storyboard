@@ -256,13 +256,7 @@
                         </connections>
                     </collectionView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Einkaufsliste" id="cOQ-iS-9sI">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mSP-eb-VS1">
-                            <connections>
-                                <action selector="addItem:" destination="Qco-22-ZTg" id="nbO-dq-Gqi"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Einkaufsliste" id="cOQ-iS-9sI"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="0dQ-SI-qJK" id="EUS-Ob-x0y"/>
