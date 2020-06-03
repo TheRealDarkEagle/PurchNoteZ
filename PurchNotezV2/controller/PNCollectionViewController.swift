@@ -24,8 +24,8 @@ class PNCollectionViewController: NSObject, UICollectionViewDataSource, UICollec
         if shoppinglist != nil {
 			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath) as? CustomCollectionViewCell else { return UICollectionViewCell() }
             
-            cell.titleLabel.text = shoppinglist!.items[indexPath.item].getTitle()
-            cell.descritonLabel.text = shoppinglist!.items[indexPath.item].description
+            //cell.titleLabel.text = shoppinglist!.items[indexPath.item].getTitle()
+            //cell.descritonLabel.text = shoppinglist!.items[indexPath.item].description
             
             return cell
         } else {

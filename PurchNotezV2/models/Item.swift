@@ -10,7 +10,7 @@ import Foundation
 
 struct Item {
     var description: String
-    func getTitle() -> String {
+    func title() -> String {
         String(description.prefix(1)).uppercased()
     }
     var checked: Bool

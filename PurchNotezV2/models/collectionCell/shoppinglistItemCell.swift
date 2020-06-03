@@ -10,9 +10,4 @@ import UIKit
 
 class ShoppinglistItemCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
-    
-    
-    
-    
-    
 }

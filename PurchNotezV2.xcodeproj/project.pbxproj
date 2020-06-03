@@ -15,10 +15,10 @@
 		F992212C24628FD100ADE4B1 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F992212B24628FD100ADE4B1 /* DataHandler.swift */; };
 		F992212E2462CFF600ADE4B1 /* AktivShoppingListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F992212D2462CFF600ADE4B1 /* AktivShoppingListVC.swift */; };
 		F9C5AE79246559CE00B69935 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F9C5AE78246559CE00B69935 /* .swiftlint.yml */; };
+		F9C5AE82246D876E00B69935 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C5AE81246D876E00B69935 /* DateExtension.swift */; };
 		F9E2630B24651C6D009B83A3 /* CreateVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E2630A24651C6D009B83A3 /* CreateVC2.swift */; };
 		F9F68A3224614CAE007B7299 /* PurchNotesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9F68A3024614CAE007B7299 /* PurchNotesModel.xcdatamodeld */; };
 		F9FD029F242DF46C0061902F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FD029E242DF46C0061902F /* AppDelegate.swift */; };
-		F9FD02A6242DF46C0061902F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9FD02A4242DF46C0061902F /* Main.storyboard */; };
 		F9FD02A8242DF46E0061902F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9FD02A7242DF46E0061902F /* Assets.xcassets */; };
 		F9FD02AB242DF46E0061902F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9FD02A9242DF46E0061902F /* LaunchScreen.storyboard */; };
 		F9FD02B6242DF46E0061902F /* PurchNotezV2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FD02B5242DF46E0061902F /* PurchNotezV2Tests.swift */; };
@@ -55,11 +55,11 @@
 		F992212B24628FD100ADE4B1 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 		F992212D2462CFF600ADE4B1 /* AktivShoppingListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AktivShoppingListVC.swift; sourceTree = "<group>"; };
 		F9C5AE78246559CE00B69935 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		F9C5AE81246D876E00B69935 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		F9E2630A24651C6D009B83A3 /* CreateVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVC2.swift; sourceTree = "<group>"; };
 		F9F68A3124614CAE007B7299 /* PurchNotesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PurchNotesModel.xcdatamodel; sourceTree = "<group>"; };
 		F9FD029B242DF46C0061902F /* PurchNotezV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PurchNotezV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9FD029E242DF46C0061902F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F9FD02A5242DF46C0061902F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F9FD02A7242DF46E0061902F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9FD02AA242DF46E0061902F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9FD02AC242DF46E0061902F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -114,6 +114,7 @@
 			children = (
 				F93669962435ADE800BDD843 /* listStorageHandler.swift */,
 				F992212B24628FD100ADE4B1 /* DataHandler.swift */,
+				F9C5AE81246D876E00B69935 /* DateExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -176,7 +177,6 @@
 		F9FD02CE242DF4790061902F /* storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				F9FD02A4242DF46C0061902F /* Main.storyboard */,
 				F9FD02A9242DF46E0061902F /* LaunchScreen.storyboard */,
 			);
 			path = storyboards;
@@ -321,7 +321,6 @@
 				F9C5AE79246559CE00B69935 /* .swiftlint.yml in Resources */,
 				F9FD02AB242DF46E0061902F /* LaunchScreen.storyboard in Resources */,
 				F9FD02A8242DF46E0061902F /* Assets.xcassets in Resources */,
-				F9FD02A6242DF46C0061902F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9FD02DB2431BB010061902F /* MainVC.swift in Sources */,
+				F9C5AE82246D876E00B69935 /* DateExtension.swift in Sources */,
 				F9F68A3224614CAE007B7299 /* PurchNotesModel.xcdatamodeld in Sources */,
 				F94B566A243C9AB80062C96F /* PNCollectionViewController.swift in Sources */,
 				F93669972435ADE800BDD843 /* listStorageHandler.swift in Sources */,
@@ -415,14 +415,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F9FD02A4242DF46C0061902F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F9FD02A5242DF46C0061902F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F9FD02A9242DF46E0061902F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
