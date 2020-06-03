@@ -54,9 +54,10 @@ class CreateViewController: UICollectionViewController {
 		if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? CustomCollectionViewCell {
 			
 			//cell.title = shoppinglist.items[indexPath.item].title()
-			cell.title = shoppinglist.items[indexPath.item].description.convertToEmoji()
-			cell.titleLabel.adjustsFontForContentSizeCategory = true
+			cell.title = shoppinglist.items[indexPath.item].description.lowercased().convertToEmoji()
 			cell.descriptionText = shoppinglist.items[indexPath.item].description
+			
+			cell.backgroundColor = .systemGray5
 			return cell
 		}
 			return UICollectionViewCell()
@@ -117,11 +118,6 @@ extension CreateViewController {
        func save() {
            DataStorageHandler().save(shoppinglist)
        }
-       /*
-       override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           save()
-       }
-		*/
        
     @IBAction func changeShoppinglistTitle(_ sender: Any) {
         let alertController = UIAlertController(title: "Neuer Title", message: nil, preferredStyle: .alert)
@@ -134,7 +130,6 @@ extension CreateViewController {
                 }
            self?.shoppinglist.title = txt
         }
-
         alertController.addAction(submitAction)
         self.present(alertController, animated: true)
    }
