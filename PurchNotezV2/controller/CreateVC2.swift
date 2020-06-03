@@ -52,7 +52,10 @@ class CreateViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? CustomCollectionViewCell {
-			cell.title = shoppinglist.items[indexPath.item].title()
+			
+			//cell.title = shoppinglist.items[indexPath.item].title()
+			cell.title = shoppinglist.items[indexPath.item].description.convertToEmoji()
+			cell.titleLabel.adjustsFontForContentSizeCategory = true
 			cell.descriptionText = shoppinglist.items[indexPath.item].description
 			return cell
 		}

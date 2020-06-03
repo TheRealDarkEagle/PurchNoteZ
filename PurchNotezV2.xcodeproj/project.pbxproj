@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F92A29522487705E0097131F /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92A29512487705E0097131F /* Converter.swift */; };
 		F93669972435ADE800BDD843 /* listStorageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93669962435ADE800BDD843 /* listStorageHandler.swift */; };
 		F942A07524348AAD00CF3103 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F942A07324348AAD00CF3103 /* CustomCollectionViewCell.swift */; };
 		F94B566A243C9AB80062C96F /* PNCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B5669243C9AB80062C96F /* PNCollectionViewController.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F92A29512487705E0097131F /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		F93669962435ADE800BDD843 /* listStorageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listStorageHandler.swift; sourceTree = "<group>"; };
 		F942A07324348AAD00CF3103 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		F94B5669243C9AB80062C96F /* PNCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNCollectionViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				F93669962435ADE800BDD843 /* listStorageHandler.swift */,
 				F992212B24628FD100ADE4B1 /* DataHandler.swift */,
 				F9C5AE81246D876E00B69935 /* DateExtension.swift */,
+				F92A29512487705E0097131F /* Converter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 			files = (
 				F9FD02DB2431BB010061902F /* MainVC.swift in Sources */,
 				F9C5AE82246D876E00B69935 /* DateExtension.swift in Sources */,
+				F92A29522487705E0097131F /* Converter.swift in Sources */,
 				F9F68A3224614CAE007B7299 /* PurchNotesModel.xcdatamodeld in Sources */,
 				F94B566A243C9AB80062C96F /* PNCollectionViewController.swift in Sources */,
 				F93669972435ADE800BDD843 /* listStorageHandler.swift in Sources */,

@@ -31,6 +31,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
 		label.text = ""
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.textAlignment = .center
+		label.font = label.font.withSize(50)
 		return label
 	}()
 	let descriptionLabel: UILabel = {

@@ -21,28 +21,23 @@ class AktivShoppingListVC: UICollectionViewController {
 	
 	private func setup() {
 		collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-		collectionView.delegate = self
-		collectionView.dataSource = self
-		collectionView.backgroundColor = .white
-		
+		collectionView.delegate 		= self
+		collectionView.dataSource 		= self
+		collectionView.backgroundColor 	= .white
         title = shoppinglist?.title
-		
 	}
 	
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		guard let list = shoppinglist else { return 0 }
-		guard let listItems = list.items else { return 0 }
-		return listItems.count
+		guard let numberOfItems = shoppinglist?.items?.count else { return 0 }
+		return numberOfItems
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath) as? CustomCollectionViewCell else { return UICollectionViewCell() }
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? CustomCollectionViewCell else { return UICollectionViewCell() }
+		guard let items = shoppinglist?.items 					else { return UICollectionViewCell() }
+		guard let item = items[indexPath.row] as? ShoppingItem 	else { return UICollectionViewCell() }
 		
-		guard let items = shoppinglist?.items else { return UICollectionViewCell() }
-		guard let item = items[indexPath.row] as? ShoppingItem else { return UICollectionViewCell()}
-		guard let firstCharacter = item.text?.first else { return UICollectionViewCell() }
-		
-		cell.title = "\(firstCharacter)"
+		cell.title = item.text?.lowercased().convertToEmoji()
 		cell.descriptionText = item.text
         
 		if item.checked {
@@ -59,7 +54,6 @@ class AktivShoppingListVC: UICollectionViewController {
 		guard let item = shoppinglist.items?[indexPath.row] as? ShoppingItem else { return }
 		
         item.checked = !item.checked
-		
         self.collectionView.reloadData()
     }
 }
