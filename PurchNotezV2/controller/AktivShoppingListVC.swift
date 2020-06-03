@@ -27,6 +27,8 @@ class AktivShoppingListVC: UICollectionViewController {
         title = shoppinglist?.title
 	}
 	
+	// MARK: - CollectionView Functions
+	
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		guard let numberOfItems = shoppinglist?.items?.count else { return 0 }
 		return numberOfItems

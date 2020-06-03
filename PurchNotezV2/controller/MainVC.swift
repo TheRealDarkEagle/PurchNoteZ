@@ -18,32 +18,29 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 	var shoppingLists: [ShoppingItemList]?
     
 	override func viewDidLoad() {
-		print("Loading MainVC!")
         super.viewDidLoad()
-		setupTableView()
-        setupScreen()
-		view.backgroundColor = .white
+		setup()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		reloadData()
 	}
-	/*
-	Creation-Screen segue
-	*/
-	@objc func segueToCreateScreen() {
-		let creationScreen = CreateViewController(collectionViewLayout: UICollectionViewFlowLayout())
-		navigationController?.pushViewController(creationScreen, animated: true)
+	
+	// MARK: - Setup Functions
+	
+	private func setup() {
+		view.backgroundColor = .white
+		setupTableView()
+        setupScreen()
 	}
 	
 	private func setupTableView() {
-		
-		tableView.isUserInteractionEnabled = true
-		tableView.allowsSelection = true
-		
 		tableView.register(ShoppinglistItemCell.self, forCellReuseIdentifier: cellIdentifier)
 		tableView.dataSource = self
 		tableView.delegate = self
+		tableView.isUserInteractionEnabled = true
+		tableView.allowsSelection = true
+		
 		view.addSubview(tableView)
 		tableView.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
@@ -54,48 +51,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 		])
 	}
 	
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		guard let lists = shoppingLists else { return 0}
-        return lists.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingList", for: indexPath)
-		guard let lists = shoppingLists else { return UITableViewCell()}
-        cell.textLabel?.text = lists[indexPath.item].title
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		if tableView.cellForRow(at: indexPath)?.textLabel?.text != nil {
-		
-			guard let lists = shoppingLists else { return }
-			
-			let activelist = lists[indexPath.row]
-			segueToAktiveShoppingList(list: activelist)
-           }
-    }
-	
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let actionDelete = UIContextualAction(style: .normal,
-                                            title: "Delete", handler: {_, _, _ in
-                                                
-                                                self.dataStorageHandler.delete(entry: self.dataStorageHandler.loadAll()[indexPath.row])
-												self.reloadData()
-        })
-        actionDelete.backgroundColor = .red
-        
-        let configuration = UISwipeActionsConfiguration(actions: [actionDelete])
-        return configuration
-    }
-	
-	private func segueToAktiveShoppingList(list: ShoppingItemList) {
-		let aktiveShoppingListVC = AktivShoppingListVC(collectionViewLayout: UICollectionViewFlowLayout())
-		aktiveShoppingListVC.shoppinglist = list
-		navigationController?.pushViewController(aktiveShoppingListVC, animated: true)
-	}
-    
-    private func setupScreen() {
+	private func setupScreen() {
 		setupNavigationItems()
         reloadData()
     }
@@ -103,6 +59,57 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 	private func setupNavigationItems() {
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(segueToCreateScreen))
 	}
+	
+	// MARK: - Segues
+	/*
+	Creation-Screen segue
+	*/
+	@objc func segueToCreateScreen() {
+		let creationScreen = CreateViewController(collectionViewLayout: UICollectionViewFlowLayout())
+		navigationController?.pushViewController(creationScreen, animated: true)
+	}
+	
+	private func segueToAktiveShoppingList(list: ShoppingItemList) {
+		let aktiveShoppingListVC = AktivShoppingListVC(collectionViewLayout: UICollectionViewFlowLayout())
+		aktiveShoppingListVC.shoppinglist = list
+		navigationController?.pushViewController(aktiveShoppingListVC, animated: true)
+	}
+	
+	// MARK: - TableView Functions
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		guard let lists = shoppingLists else { return 0 }
+        return lists.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingList", for: indexPath)
+		guard let lists = shoppingLists else { return UITableViewCell() }
+        cell.textLabel?.text = lists[indexPath.item].title
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		
+		if tableView.cellForRow(at: indexPath)?.textLabel?.text != nil {
+			guard let lists = shoppingLists else { return }
+			let activelist = lists[indexPath.row]
+			segueToAktiveShoppingList(list: activelist)
+           }
+    }
+	
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let actionDelete = UIContextualAction(style: .normal, title: "Delete", handler: { _, _, _ in
+			self.dataStorageHandler.delete(entry: self.dataStorageHandler.loadAll()[indexPath.row])
+			self.reloadData()
+        })
+        actionDelete.backgroundColor = .red
+        
+        let configuration = UISwipeActionsConfiguration(actions: [actionDelete])
+        return configuration
+    }
+    
+    // MARK: - Util´s Functions
 
     private func reloadData() {
 		shoppingLists = dataStorageHandler.loadAll()
@@ -120,10 +127,10 @@ extension ShoppingItemList {
         let shoppinglist = ShoppingList()
         shoppinglist.title = self.title!
         if let items = self.items {
-          _ = items.array.map { item in
-			guard let shoppingItem = item as? ShoppingItem else { return }
-			guard let itemText = shoppingItem.text else { return }
-			shoppinglist.add(itemText)
+			_ = items.array.map { item in
+				guard let shoppingItem = item as? ShoppingItem else { return }
+				guard let itemText = shoppingItem.text else { return }
+				shoppinglist.add(itemText)
             }
         }
         return shoppinglist

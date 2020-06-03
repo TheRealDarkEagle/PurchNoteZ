@@ -2,10 +2,9 @@ import UIKit
 import Foundation
 
 private let cellIdentifier = "itemCell"
-	
-	// MARK: - CreateViewController Mainpart
 
 class CreateViewController: UICollectionViewController {
+	
     private lazy var shoppinglist: ShoppingList  = {
         var shoppinglist = ShoppingList()
         let date = Date().fullStringRepresentation
@@ -19,10 +18,7 @@ class CreateViewController: UICollectionViewController {
 		requestTitle()
     }
 	
-	@objc func segueToMainScreen() {
-		save()
-		self.navigationController?.popViewController(animated: true)
-	}
+	// MARK: - Setup Functions
 	
 	private func setup() {
 		collectionView.backgroundColor = .white
@@ -34,18 +30,22 @@ class CreateViewController: UICollectionViewController {
 	}
 	
 	private func setupNavigationBarItems() {
-		
 		self.navigationController?.setToolbarHidden(false, animated: false)
 		self.navigationController?.toolbar.isUserInteractionEnabled = true
 		
 		self.setToolbarItems([UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(segueToMainScreen))], animated: true)
-		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(segueToCreateScreen))
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(newItem))
 	}
 	
-	@objc func segueToCreateScreen() {
-		addItem()
+	// MARK: - Segue
+	
+	@objc func segueToMainScreen() {
+		save()
+		self.navigationController?.popViewController(animated: true)
 	}
-
+	
+	// MARK: - CollectionView Functions
+	
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         shoppinglist.items.count
     }
@@ -91,6 +91,11 @@ extension CreateViewController {
            alertController.addAction(alertAction)
            self.present(alertController, animated: true)
        }
+	
+	@objc func newItem() {
+		addItem()
+	}
+
 	func addItem() {
            let alertController = UIAlertController(title: "Was benötigst du noch?", message: nil, preferredStyle: .alert)
            alertController.addTextField()
@@ -118,19 +123,4 @@ extension CreateViewController {
        func save() {
            DataStorageHandler().save(shoppinglist)
        }
-       
-    @IBAction func changeShoppinglistTitle(_ sender: Any) {
-        let alertController = UIAlertController(title: "Neuer Title", message: nil, preferredStyle: .alert)
-        alertController.addTextField()
-                  
-        let submitAction = UIAlertAction(title: "Bestätigen", style: .default) { [weak self, weak alertController] _ in
-            guard let txt = alertController?.textFields?[0].text
-                else {
-                    return
-                }
-           self?.shoppinglist.title = txt
-        }
-        alertController.addAction(submitAction)
-        self.present(alertController, animated: true)
-   }
 }

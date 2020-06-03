@@ -49,6 +49,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
 	}
 	
 	// MARK: - Building the Cell
+	
 	private func setupCell() {
 		self.translatesAutoresizingMaskIntoConstraints = false
 		addSubview(titleLabel)
@@ -64,7 +65,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
 			descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
 			descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
 		])
-		
 	}
 	
 	required init?(coder: NSCoder) {

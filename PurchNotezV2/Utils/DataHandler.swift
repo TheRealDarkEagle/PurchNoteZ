@@ -17,11 +17,13 @@ class DataHandler {
 }
 
 extension DataHandler {
+	
     func createShoppingItem(description: String) -> ShoppingItem {
         let item = ShoppingItem(context: managedObjectContext)
         item.text = description
         return item
     }
+	
     func createShoppingList(title: String) -> ShoppingItemList {
         let list = ShoppingItemList(context: managedObjectContext)
         list.id = UUID()
@@ -45,10 +47,12 @@ extension DataHandler {
         _ = items.map { text in list.addToItems(createShoppingItem(description: text))}
         save()
     }
+	
     func delete(entry: ShoppingItemList) {
         managedObjectContext.delete(entry)
         save()
     }
+	
     private func save() {
         do {
             try managedObjectContext.save()
@@ -56,6 +60,7 @@ extension DataHandler {
             print("Could not save Data to Database -> \(error.localizedDescription)")
         }
     }
+	
     func deleteAll() {
         let list = loadData()
 		_ = list.map { item in
