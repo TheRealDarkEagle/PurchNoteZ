@@ -61,9 +61,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 	}
 	
 	// MARK: - Segues
-	/*
-	Creation-Screen segue
-	*/
+
 	@objc func segueToCreateScreen() {
 		let creationScreen = CreateViewController(collectionViewLayout: UICollectionViewFlowLayout())
 		navigationController?.pushViewController(creationScreen, animated: true)
