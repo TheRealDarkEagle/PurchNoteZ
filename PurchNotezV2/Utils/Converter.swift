@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
 	func convertToEmoji() -> String {
-		Converter().convertToEmoji(text: self)
+		Converter().convertToEmoji(text: self.lowercased())
 	}
 }
 

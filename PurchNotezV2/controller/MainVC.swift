@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 private let cellIdentifier = "shoppingList"
 
@@ -40,15 +41,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 		tableView.delegate = self
 		tableView.isUserInteractionEnabled = true
 		tableView.allowsSelection = true
-		
 		view.addSubview(tableView)
-		tableView.translatesAutoresizingMaskIntoConstraints = false
-		NSLayoutConstraint.activate([
-			tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-			tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-			tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-			tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-		])
+		
+		tableView.snp.makeConstraints { (make) in
+			make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
+			make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
+			make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+			make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+		}
 	}
 	
 	private func setupScreen() {
@@ -117,20 +117,5 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func clearList(_ sender: Any) {
         dataStorageHandler.clearList()
         setupScreen()
-    }
-}
-
-extension ShoppingItemList {
-    func convertToShoppingList() -> ShoppingList {
-        let shoppinglist = ShoppingList()
-        shoppinglist.title = self.title!
-        if let items = self.items {
-			_ = items.array.map { item in
-				guard let shoppingItem = item as? ShoppingItem else { return }
-				guard let itemText = shoppingItem.text else { return }
-				shoppinglist.add(itemText)
-            }
-        }
-        return shoppinglist
     }
 }

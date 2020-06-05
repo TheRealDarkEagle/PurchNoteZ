@@ -1,12 +1,13 @@
 import UIKit
 import Foundation
+import SnapKit
 
 private let cellIdentifier = "itemCell"
 
 class CreateViewController: UICollectionViewController {
 	
-    private lazy var shoppinglist: ShoppingList  = {
-        var shoppinglist = ShoppingList()
+    private lazy var shoppinglist: ShoppingItemList  = {
+		var shoppinglist = ShoppingItemList(context: DataHandler().managedObjectContext)
         let date = Date().fullStringRepresentation
         shoppinglist.title = date
         return shoppinglist
@@ -47,16 +48,16 @@ class CreateViewController: UICollectionViewController {
 	// MARK: - CollectionView Functions
 	
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        shoppinglist.items.count
+		guard let items = shoppinglist.items else { return 0 }
+		return items.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? CustomCollectionViewCell {
-			
-			//cell.title = shoppinglist.items[indexPath.item].title()
-			cell.title = shoppinglist.items[indexPath.item].description.lowercased().convertToEmoji()
-			cell.descriptionText = shoppinglist.items[indexPath.item].description
-			
+			guard let item = shoppinglist.items?.array[indexPath.row] as? ShoppingItem else { return UICollectionViewCell() }
+			guard let itemText = item.text else { return UICollectionViewCell() }
+			cell.title = itemText.convertToEmoji()
+			cell.descriptionText = item.text
 			cell.backgroundColor = .systemGray5
 			return cell
 		}
@@ -111,9 +112,13 @@ extension CreateViewController {
            if txt.isEmpty {
                return
            }
-           let item = Item(description: txt, checked: false)
-           shoppinglist.items.append(item)
-           reloadCollection()
+			let item = ShoppingItem(context: DataHandler().managedObjectContext)
+			print(txt)
+			item.text = txt
+			item.checked = false
+			
+			shoppinglist.addToItems(item)
+			reloadCollection()
        }
        
        func reloadCollection() {

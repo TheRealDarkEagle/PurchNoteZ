@@ -12,20 +12,10 @@ class DataStorageHandler {
     
     let datahandler = DataHandler()
     
-    func save(_ list: ShoppingList) {
-        let itemdescriptions = list.items.map {item in item.description}
-        datahandler.createNewList(listTitle: list.title, items: itemdescriptions)
+    func save(_ list: ShoppingItemList) {
+		datahandler.save()
     }
-   
-    fileprivate func createShoppingListOf(_ key: String, _ itemdescription: [String]) -> ShoppingList {
-        let shoppinglist = ShoppingList()
-        shoppinglist.title = key
-        for counter in 0..<itemdescription.count {
-            shoppinglist.add(itemdescription[counter])
-        }
-       return shoppinglist
-    }
-    
+  
     func loadAll() -> [ShoppingItemList] {
         datahandler.loadData()
     }

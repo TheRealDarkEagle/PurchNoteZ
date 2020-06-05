@@ -41,19 +41,13 @@ extension DataHandler {
         }
         return lists
     }
-    
-    func createNewList(listTitle title: String, items: [String]) {
-        let list = createShoppingList(title: title)
-        _ = items.map { text in list.addToItems(createShoppingItem(description: text))}
-        save()
-    }
-	
+
     func delete(entry: ShoppingItemList) {
         managedObjectContext.delete(entry)
         save()
     }
 	
-    private func save() {
+    func save() {
         do {
             try managedObjectContext.save()
         } catch {
@@ -63,7 +57,7 @@ extension DataHandler {
 	
     func deleteAll() {
         let list = loadData()
-		_ = list.map { item in
+		list.forEach { item in
             managedObjectContext.delete(item)
         }
         save()

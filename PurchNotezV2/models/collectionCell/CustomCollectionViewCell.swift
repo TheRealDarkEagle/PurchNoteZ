@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class CustomCollectionViewCell: UICollectionViewCell {
 	
@@ -55,16 +56,18 @@ class CustomCollectionViewCell: UICollectionViewCell {
 		addSubview(titleLabel)
 		addSubview(descriptionLabel)
 		
-		NSLayoutConstraint.activate([
-			titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-			titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-			titleLabel.topAnchor.constraint(equalTo: topAnchor),
-			titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30),
-			descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-			descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-			descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-			descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
-		])
+		titleLabel.snp.makeConstraints { (make) in
+			make.leading.equalTo(self.snp.leading)
+			make.trailing.equalTo(self.snp.trailing)
+			make.top.equalTo(self.snp.top)
+			make.height.equalTo(80)
+		}
+		descriptionLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(titleLabel.snp.bottom)
+			make.leading.equalTo(self.snp.leading)
+			make.trailing.equalTo(self.snp.trailing)
+			make.bottom.equalTo(self.snp.bottom)
+		}
 	}
 	
 	required init?(coder: NSCoder) {
