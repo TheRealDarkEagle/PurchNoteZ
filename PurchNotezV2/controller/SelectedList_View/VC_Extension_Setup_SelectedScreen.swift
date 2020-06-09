@@ -6,10 +6,7 @@
 //  Copyright © 2020 Empiriecom. All rights reserved.
 //
 
-import Foundation
 import UIKit
-
-let reuseIdentifier = "itemCell"
 
 extension SelectedListViewVC {
 	

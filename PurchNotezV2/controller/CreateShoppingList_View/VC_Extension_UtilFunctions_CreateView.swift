@@ -6,7 +6,6 @@
 //  Copyright © 2020 Empiriecom. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 	// MARK: - Utility Functionality
@@ -21,8 +20,8 @@ extension CreateShoppingListVC {
 		   if txt.isEmpty {
 			   return
 		   }
-		   self?.shoppinglist.title = txt
-		   self?.title = self?.shoppinglist.title
+		   self?.listTitle = txt
+		   self?.title = txt
 		   
 	   }
 	   alertController.addAction(alertAction)
@@ -38,30 +37,23 @@ extension CreateShoppingListVC {
 	   alertController.addTextField()
 	   
 	   let submitAction = UIAlertAction(title: "Hinzufügen", style: .default) { [weak self, weak alertController] _ in guard let txt = alertController?.textFields?[0].text else { return }
-		   self?.createShoppingItem(txt)
+		self?.items.append(txt)
+		self?.reloadCollection()
 	   }
 	   alertController.addAction(submitAction)
 	   self.present(alertController, animated: true)
    }
-       
-   func createShoppingItem(_ txt: String) {
-	   if txt.isEmpty {
-		   return
-	   }
-		let item = ShoppingItem(context: DataHandler().managedObjectContext)
-		print(txt)
-		item.text = txt
-		item.checked = false
-		
-		shoppinglist.addToItems(item)
-		reloadCollection()
-   }
-   
+
    func reloadCollection() {
 	   collectionView.reloadData()
    }
 
    func save() {
-	   DataStorageHandler().save(shoppinglist)
+	let datahandler = DataHandler()
+	let shoppingList = datahandler.createShoppingList(title: self.listTitle)
+	items.forEach { descr in
+		shoppingList.addToItems(datahandler.createShoppingItem(description: descr))
+	}
+	   DataStorageHandler().save(shoppingList)
    }
 }

@@ -15,6 +15,7 @@ class StartViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
 	let dataStorageHandler = DataStorageHandler()
     var selectedShoppingList: ShoppingItemList?
 	var shoppingLists: [ShoppingItemList]?
+	let cellIdentifier = "shoppingList"
 	
 	// MARK: - TableView Functions
 	
@@ -24,7 +25,7 @@ class StartViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingList", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
 		guard let lists = shoppingLists else { return UITableViewCell() }
         cell.textLabel?.text = lists[indexPath.item].title
         return cell

@@ -11,6 +11,7 @@ import UIKit
 class SelectedListViewVC: UICollectionViewController {
     
     var shoppinglist: ShoppingItemList?
+	let reuseIdentifier = "itemCell"
 	
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		guard let numberOfItems = shoppinglist?.items?.count else { return 0 }
@@ -19,17 +20,13 @@ class SelectedListViewVC: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ShoppingListCellViewModel else { return UICollectionViewCell() }
-		guard let items = shoppinglist?.items else { return UICollectionViewCell() }
-		guard let item = items[indexPath.row] as? ShoppingItem else { return UICollectionViewCell() }
-		
-		cell.title = item.text?.lowercased().convertToEmoji()
-		cell.descriptionText = item.text
-        
-		if item.checked {
-            cell.backgroundColor = .green
-        } else {
-            cell.backgroundColor = .systemGray6
-        }
+		guard let item = shoppinglist?.items?[indexPath.row] as? ShoppingItem else { return cell }
+
+		let viewModel = ItemViewModel(shoppingItem: item)
+
+		cell.title = viewModel.title
+		cell.descriptionText = viewModel.description
+		cell.backgroundColor = viewModel.backgroundColor
 		
 		return cell
     }

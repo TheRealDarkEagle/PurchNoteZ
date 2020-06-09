@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-private let cellIdentifier = "shoppingList"
-
 extension StartViewVC {
 	
 	override func viewDidLoad() {
