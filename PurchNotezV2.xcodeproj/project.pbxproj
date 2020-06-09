@@ -209,7 +209,7 @@
 				F9F4AC1D248FB3EA00DFC939 /* ViewModels */,
 				F9F68A2D24614B20007B7299 /* Utils */,
 				F9FD02DC2431BB650061902F /* models */,
-				F9FD02D52431B81F0061902F /* controller */,
+				F9FD02D52431B81F0061902F /* Views */,
 				F9FD029E242DF46C0061902F /* AppDelegate.swift */,
 				F9FD02CE242DF4790061902F /* storyboards */,
 				F9FD02A7242DF46E0061902F /* Assets.xcassets */,
@@ -227,14 +227,14 @@
 			path = storyboards;
 			sourceTree = "<group>";
 		};
-		F9FD02D52431B81F0061902F /* controller */ = {
+		F9FD02D52431B81F0061902F /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				F9F4AC20248FB60800DFC939 /* CreateShoppingList_View */,
 				F9F4AC1F248FB5E900DFC939 /* SelectedList_View */,
 				F9F4AC1E248FB5DE00DFC939 /* StartView_View */,
 			);
-			path = controller;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F9FD02DC2431BB650061902F /* models */ = {

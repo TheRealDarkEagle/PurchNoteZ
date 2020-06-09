@@ -18,7 +18,6 @@ class StartViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
 	let cellIdentifier = "shoppingList"
 	
 	// MARK: - TableView Functions
-	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		guard let lists = shoppingLists else { return 0 }
         return lists.count
@@ -32,7 +31,6 @@ class StartViewVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
 		if tableView.cellForRow(at: indexPath)?.textLabel?.text != nil {
 			guard let lists = shoppingLists else { return }
 			let activelist = lists[indexPath.row]
