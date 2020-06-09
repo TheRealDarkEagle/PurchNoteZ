@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class CustomCollectionViewCell: UICollectionViewCell {
+class ShoppingListCellViewModel: UICollectionViewCell {
 	
 	// MARK: - Properties
 	

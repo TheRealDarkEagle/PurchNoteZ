@@ -8,26 +8,9 @@
 
 import UIKit
 
-private let reuseIdentifier = "itemCell"
-
-class AktivShoppingListVC: UICollectionViewController {
+class SelectedListViewVC: UICollectionViewController {
     
     var shoppinglist: ShoppingItemList?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-		setup()
-    }
-	
-	private func setup() {
-		collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-		collectionView.delegate 		= self
-		collectionView.dataSource 		= self
-		collectionView.backgroundColor 	= .white
-        title = shoppinglist?.title
-	}
-	
-	// MARK: - CollectionView Functions
 	
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		guard let numberOfItems = shoppinglist?.items?.count else { return 0 }
@@ -35,9 +18,9 @@ class AktivShoppingListVC: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? CustomCollectionViewCell else { return UICollectionViewCell() }
-		guard let items = shoppinglist?.items 					else { return UICollectionViewCell() }
-		guard let item = items[indexPath.row] as? ShoppingItem 	else { return UICollectionViewCell() }
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ShoppingListCellViewModel else { return UICollectionViewCell() }
+		guard let items = shoppinglist?.items else { return UICollectionViewCell() }
+		guard let item = items[indexPath.row] as? ShoppingItem else { return UICollectionViewCell() }
 		
 		cell.title = item.text?.lowercased().convertToEmoji()
 		cell.descriptionText = item.text
@@ -58,10 +41,4 @@ class AktivShoppingListVC: UICollectionViewController {
         item.checked = !item.checked
         self.collectionView.reloadData()
     }
-}
-
-extension AktivShoppingListVC: UICollectionViewDelegateFlowLayout {
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		CGSize(width: 100, height: 100)
-	}
 }
